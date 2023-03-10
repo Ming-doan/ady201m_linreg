@@ -2,7 +2,7 @@ from flask import Flask, jsonify, request, render_template
 from flask_cors import CORS
 from apis.linear_regression import predict, re_process
 
-app = Flask(__name__, static_url_path='/static')
+app = Flask(__name__, static_folder='templates/static')
 CORS(app, supports_credentials=True)
 
 
@@ -37,3 +37,7 @@ def linreg():
             'price': pred
         }
         return jsonify(payload)
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
