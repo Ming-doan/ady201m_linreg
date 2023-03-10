@@ -1,5 +1,6 @@
 import numpy as np
 import pickle
+import os
 
 MODEL_PATH = 'models/sklearn_hp1.pickle'
 MIN_SQFT = 1450
@@ -25,7 +26,10 @@ MAX_PRICE = 211200
 
 
 def load_model():
-    model = pickle.load(open(MODEL_PATH, 'rb'))
+    models_dir = os.path.abspath(os.path.join(
+        os.path.dirname(__file__), '..', 'models'))
+    with open(os.path.join(models_dir, 'sklearn_hp1.pickle'), 'rb') as f:
+        model = pickle.load(f)
     return model
 
 
