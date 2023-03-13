@@ -39,8 +39,8 @@ def relu(x):
 
 def re_process(sqft, bedrooms, bathrooms, is_brick, neighborhood):
     _sqft = relu((int(sqft) - MIN_SQFT) / (MAX_SQFT - MIN_SQFT))
-    _bedrooms = BEDROOMS_MAP[bedrooms]
-    _bathrooms = BATHROOMS_MAP[bathrooms]
+    _bedrooms = BEDROOMS_MAP[str(bedrooms)]
+    _bathrooms = BATHROOMS_MAP[str(bathrooms)]
     _is_brick = 1 if is_brick == 'true' else 0
     _neighborhood = NEIGHBORHOOD_MAP[neighborhood]
     return [_sqft, _bedrooms, _bathrooms, _is_brick, _neighborhood]
